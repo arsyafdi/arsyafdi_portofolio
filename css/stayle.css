@@ -1,0 +1,473 @@
+:root {
+  --bg: #060c22;
+  --teks: #ffffff;
+  --peremri: #b07300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+  background-color: var(--bg);
+  color: var(--teks);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #727272;
+  padding: 1rem 5%;
+  position: fixed;
+  top: 2rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  z-index: 999;
+  border-radius: 50px;
+}
+.navbar .navbar-logo {
+  font-size: 3rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--teks);
+}
+.navbar .navbar-logo span {
+  color: var(--peremri);
+}
+.navbar .navbar-nav a {
+  display: inline-block;
+  color: var(--teks);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+.navbar .navbar-nav a:hover {
+  color: var(--peremri);
+}
+.navbar .Contact {
+  display: inline-block;
+  padding: 1rem;
+  background-color: var(--peremri);
+  border: var(--teks) 1px solid;
+  color: var(--teks);
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar .Contact:hover {
+  background-color: rgb(255, 255, 255);
+  color: #060c22;
+}
+/* ===== HOME SECTION ===== */
+.home {
+  min-height: 100vh;
+  position: relative;
+  padding-top: 10rem;
+  display: flex;
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 90%, (0, 0, 0, 0));
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg.jpg") center/cover no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+.home img {
+  display: flex;
+  border-radius: 50px;
+  position: absolute;
+  right: 7rem;
+  top: 8rem;
+  max-width: 50rem;
+  animation: goyang 4s ease-in-out infinite;
+}
+
+.content {
+  padding: 1.4rem 10%;
+  z-index: 1;
+  margin: 4rem auto;
+  color: white;
+  position: fixed;
+}
+
+.home h1 {
+  font-size: 15rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.7;
+}
+
+.home h3 {
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.home h3 span {
+  color: var(--peremri);
+}
+
+.home h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.home .icon a {
+  display: inline-flex; /* Menggunakan flex untuk centering mudah */
+  align-items: center;
+  justify-content: center;
+  color: var(--teks);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%; /* Bentuk awal lingkaran (transparan) */
+  transition: all 0.3s ease; /* Animasi smooth */
+}
+
+.home .icon a:hover {
+  background-color: var(--peremri);
+  /* Warna teks bisa diubah jika perlu */
+}
+/* About Section */
+.about,
+.services,
+.contact {
+  padding: 10rem 10% 1.4rem;
+  position: relative;
+}
+
+.about h2,
+.services h2,
+.contact h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.about h2 span,
+.contact h2 span,
+.home h2 span {
+  color: var(--peremri);
+}
+
+/* Flexbox Layout */
+.about .row {
+  display: flex;
+  margin: 0 auto;
+}
+
+/* Image Container */
+.about .about-img {
+  flex: 0 0 40%;
+}
+
+.about .about-img img {
+  width: 60%;
+  animation: goyang 3s ease-in-out infinite;
+}
+
+/* Content Container - PERBAIKAN UTAMA */
+.about .content {
+  flex: 1;
+  position: absolute;
+  margin: 2rem 15% 1.5rem;
+}
+
+.about .content p {
+  font-size: 1.5rem;
+  font-weight: 200;
+  line-height: 1.6;
+}
+
+/* Button Style */
+.about .content a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--peremri);
+  color: var(--teks);
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.about .content a i {
+  width: 20px;
+  height: 20px;
+}
+/* services */
+
+.services .services-content {
+  padding: 3%;
+  border: var(--teks) 1px solid;
+  background-color: var(--peremri);
+  border-radius: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  animation: goyangpinggir 6s ease-in-out infinite;
+}
+
+.services .services-content img {
+  width: 10rem;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  object-fit: contain; /* Agar gambar tidak pecah atau terdistorsi */
+  max-width: 100%; /* Pastikan gambar bisa mengecil jika diperlukan */
+}
+.services .services-content img:hover {
+  animation: animasi;
+}
+@keyframes animasi {
+  from {
+    transform: translateY(1);
+    top: 1rem;
+  }
+  to {
+    transform: translateY(0);
+    top: 0;
+  }
+}
+
+/* contact section */
+.contact {
+  padding: 14.2rem 10% 1.4rem;
+}
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #727272;
+  border-radius: 50px;
+}
+.contact .row iframe {
+  border-radius: 50px;
+}
+
+.contact .row .maps {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
+  border-radius: 30px;
+}
+
+.contact .row form .input-group input {
+  width: 100;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--peremri);
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+/* footer */
+footer {
+  background-color: var(--peremri);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .social {
+  padding: 1rem 0;
+}
+
+footer .social a {
+  color: #fff;
+  margin: 1rem;
+}
+
+footer .social a:hover,
+footer .link a:hover {
+  color: var(--bg);
+}
+
+footer .link a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+footer .credit a {
+  color: var(--bg);
+  font-weight: 700;
+}
+/* Feather Icons */
+.about .row a i {
+  width: 20px;
+  height: 20px;
+}
+
+/* animasi goyang */
+@keyframes goyang {
+  0% {
+    transform: translatey(0);
+  }
+  25% {
+    transform: translatey(-10px);
+  }
+  50% {
+    transform: translatey(10px);
+  }
+  75% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0);
+  }
+}
+@keyframes goyangpinggir {
+  0% {
+    transform: translatex(0);
+  }
+  25% {
+    transform: translatex(-10px);
+  }
+  50% {
+    transform: translatex(10px);
+  }
+  75% {
+    transform: translatex(-10px);
+  }
+  100% {
+    transform: translatex(0);
+  }
+}
+/* media quaris */
+/* leptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+/* tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 60%;
+  }
+  .navbar {
+    left: 1rem;
+    right: 1rem;
+    flex-direction: column;
+    padding: 1rem 1%;
+    line-height: 2;
+  }
+  .home {
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    top: 80px;
+  }
+  .home h1 {
+    font-size: 8rem;
+  }
+
+  .home h3 {
+    font-size: 4rem;
+  }
+  .home .content img {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+  }
+  .about,
+  .services {
+    padding: 20rem 10%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about .about-img img {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  .about .content {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 60rem;
+  }
+
+  .services .services-content {
+    flex-wrap: wrap;
+  }
+
+  .about .content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .about .content a {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .maps {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
+  }
+}
+/* hanphone */
+@media (max-width: 480px) {
+  html {
+    font-size: 60%;
+  }
+}
