@@ -30,12 +30,13 @@ body {
   right: 2.5rem;
   z-index: 999;
   border-radius: 50px;
+  animation: slideTop 1s ease forwards;
 }
 .navbar .navbar-logo {
   font-size: 3rem;
   font-weight: 700;
   font-style: italic;
-  color: var(--teks);
+  color: var(--teks);  
 }
 .navbar .navbar-logo span {
   color: var(--peremri);
@@ -45,6 +46,8 @@ body {
   color: var(--teks);
   font-size: 1.5rem;
   margin: 0 1rem;
+  animation: slideTop 1s ease forwards;
+  animation-delay: calc(.2s * var(--i)) ;
 }
 .navbar .navbar-nav a:hover {
   color: var(--peremri);
@@ -62,6 +65,18 @@ body {
 .navbar .Contact:hover {
   background-color: rgb(255, 255, 255);
   color: #060c22;
+}
+
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 /* ===== HOME SECTION ===== */
 .home {
@@ -90,7 +105,7 @@ body {
   position: absolute;
   right: 7rem;
   top: 8rem;
-  max-width: 50rem;
+  max-width: 45rem;
   animation: goyang 4s ease-in-out infinite;
 }
 
@@ -103,7 +118,7 @@ body {
 }
 
 .home h1 {
-  font-size: 15rem;
+  font-size: 12rem;
   font-weight: 900;
   font-style: italic;
   line-height: 0.7;
@@ -128,14 +143,15 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--teks);
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%; /* Bentuk awal lingkaran (transparan) */
   transition: all 0.3s ease; /* Animasi smooth */
 }
 
 .home .icon a:hover {
   background-color: var(--peremri);
+  transform: scale(1.5);
   /* Warna teks bisa diubah jika perlu */
 }
 /* About Section */
@@ -195,10 +211,15 @@ body {
   padding: 0.5rem 1rem;
   background: var(--peremri);
   color: var(--teks);
+  margin-top: 20px;
   border-radius: 50px;
   text-decoration: none;
+  transition: transform 1s ease;
 }
 
+.about .content a:hover {
+  transform: scale(1.5);
+}
 .about .content a i {
   width: 20px;
   height: 20px;
@@ -221,26 +242,31 @@ body {
   width: 10rem;
   height: auto;
   flex-wrap: wrap;
-  margin: 0.5rem;
+  margin: 0.2rem;
   cursor: pointer;
   margin-bottom: 1.5rem;
   object-fit: contain; /* Agar gambar tidak pecah atau terdistorsi */
   max-width: 100%; /* Pastikan gambar bisa mengecil jika diperlukan */
+  transition: transform 0.3s ease;
+  animation: slideleft 1s ease-in-out forwards;
+  animation-delay:calc(.2s * var(--i)) ;
 }
 .services .services-content img:hover {
-  animation: animasi;
-}
-@keyframes animasi {
-  from {
-    transform: translateY(1);
-    top: 1rem;
-  }
-  to {
-    transform: translateY(0);
-    top: 0;
-  }
+  transform: scale(1.1);
 }
 
+@keyframes slideleft{
+  0%{
+    transform: translateX(-100px);
+    
+  }
+  50%{
+     transform: translateX(50px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
 /* contact section */
 .contact {
   padding: 14.2rem 10% 1.4rem;
